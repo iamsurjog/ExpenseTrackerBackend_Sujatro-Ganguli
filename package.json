@@ -1,7 +1,7 @@
 {
   "name": "expensetrackerbackend_sujatro-ganguli",
   "version": "1.0.0",
-  "description": "",
+  "description": "Expense Tracker",
   "homepage": "https://github.com/iamsurjog/ExpenseTrackerBackend_Sujatro-Ganguli#readme",
   "bugs": {
     "url": "https://github.com/iamsurjog/ExpenseTrackerBackend_Sujatro-Ganguli/issues"
@@ -11,13 +11,17 @@
     "url": "git+https://github.com/iamsurjog/ExpenseTrackerBackend_Sujatro-Ganguli.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "Sujatro Ganguli",
   "type": "commonjs",
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "firebase-admin": "^13.6.0",
+    "mongoose": "^9.0.1"
   }
 }
