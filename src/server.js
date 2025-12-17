@@ -19,12 +19,6 @@ var app = express();
 
 app.use(cors());
 
-const serviceAccount = require('../serviceAccountKey.json');
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
-
-console.log('Firebase Admin initialized');
 
 // Connect to MongoDB
 // mongoose.connect(process.env.MONGODB_URL, {

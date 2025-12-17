@@ -1,21 +1,13 @@
 var express = require('express');
-var router = express.Router();
+var router = express.router;
+const authenticateToken = require('../middleware/authenticateToken');
+const { register, login, logout } = require('../controllers/authController');
 
-/* GET home page. */
-router.post('/register/', function(req, res, next) {
-    const data = { "message": "User registered successfully", "uid": "" };
-    res.json(data);
-});
 
-router.post('/login/', function(req, res, next) {
-    const data = { "token": "", "message": "Login successful" };
-    res.json(data);
-});
+router.post('/register', register);
 
-router.post('/logout/', function(req, res, next) {
-    const data = { "message": "Logout successful" };
-    res.json(data);
-});
+router.post('/login', login);
+
+router.post('/logout', authenticateToken, logout);
 
 module.exports = router;
-

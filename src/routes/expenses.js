@@ -1,17 +1,18 @@
 var express = require('express');
-var router = express.Router();
+var router = express.router;
+const authenticateToken = require('../middleware/authenticateToken');
 
-router.post('/', function(req, res, next) {
+router.post('/', authenticateToken, function(req, res, next) {
         var data = { "message": "Expense added successfully", "id": "" }
         res.json(data)
 });
 
-router.put('/:id', function(req, res, next) {
+router.put('/:id', authenticateToken, function(req, res, next) {
         var data = { "message": "Expense updated successfully" }
         res.json(data)
 });
 
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', authenticateToken, function(req, res, next) {
         var data = { "message": "Expense deleted successfully" }
         res.json(data)
 });
