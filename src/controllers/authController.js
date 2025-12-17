@@ -11,12 +11,6 @@ const register = async (req, res) => {
             });
         }
 
-        if (password.length < 6) {
-            return res.status(400).json({
-                message: 'Password must be at least 6 characters',
-            });
-        }
-
         // Create user in Firebase
         const userRecord = await auth.createUser({
             email,
@@ -41,11 +35,6 @@ const register = async (req, res) => {
     }
 };
 
-/**
- * Login user and return Firebase token
- * POST /api/login
- * Body: { email, password }
- */
 const login = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -66,6 +55,9 @@ const login = async (req, res) => {
                 message: 'Login successful',
             });
         }else{
+            console.log('here');
+            console.log(password);
+            console.log(userRecord.toJSON());
             return res.status(401).json({
                 message: 'Invalid email or password',
             });
@@ -86,11 +78,6 @@ const login = async (req, res) => {
     }
 };
 
-/**
- * Logout the user
- * POST /api/logout
- * Auth: Required
- */
 const logout = async (req, res) => {
     try {
         // Firebase tokens are stateless; logout is client-side
